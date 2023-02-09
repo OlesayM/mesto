@@ -1,0 +1,26 @@
+.btn-save {
+  width: 358px;
+  height: 50px;
+  background: #000000;
+  border-radius: 2px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  
+  margin: 48px 36xp 37px 36px;
+}
+@media screen and (max-width: 522px) {
+  .btn-save {
+      width: 238px;
+      height: 46px;
+      font-size: 14px;
+      line-height: 17px;
+      padding: 0;
+      margin: 0;
+  }
+}

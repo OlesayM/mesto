@@ -1,0 +1,17 @@
+.profile__editbuttom {
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  background-image: url("../../../images/pencil.png");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+}
+@media screen and (max-width: 404px) {
+  .profile__editbuttom {
+      height: 18px;
+      width: 18px;
+  }
+}

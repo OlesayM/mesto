@@ -1,0 +1,21 @@
+.profile__addbuttom {
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  background-image: url("../../../images/plus.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-color: transparent;
+  padding: 0;
+}
+@media screen and (max-width: 687px) {
+  .profile__addbuttom {
+      width: 282px;
+      /*margin-top: 30px;*/
+  }
+}
+
+

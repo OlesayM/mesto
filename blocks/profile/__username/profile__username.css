@@ -1,0 +1,29 @@
+.profile__username {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  color: #ffffff;
+  max-width: 294px;
+  min-height: 39px;
+  margin: 0;
+}
+@media screen and (max-width: 404px) {
+  .profile__username {
+      min-height: 26px;
+      font-size: 27px;
+      line-height: 33px;
+      margin-left: 28px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .profile__username {
+     /* max-width: 189px;*/
+      min-height: 26px;
+      font-size: 27px;
+      line-height: 33px;
+      margin-left: 28px;
+  }
+}
+

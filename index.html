@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pages/index.css">
+        <title>Mesto</title>
+    </head>
+    <body class="page">
+        <header class="header">
+            <img src="./images/logo.svg" alt="Логотип" class="header__logo">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__container">
+                    <img src="./images/avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
+                    <div class="profile__info">
+                        <div class="user-field">
+                            <h1 class="profile__username">Жак-Ив Кусто</h1>
+                            <button class="profile__editbuttom"></button>
+                        </div>
+                        <p class="profile__occupation">Исследователь океана</p>
+                    </div>
+                </div>
+                <button class="profile__addbuttom"></button>
+            </section>
+            <section class="elements">
+                <div class="element">
+                    <img src="./images/altai.jpg" alt="Алтай" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Алтай</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/baikal.jpg" alt="Байкал" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Байкал</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/cherkess.jpg" alt="Карачаево - Черкессия" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Карачаево - Черкессия</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Dombai.jpg" alt="Домбай" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Домбай</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images//elbrus.jpg" alt="Эльбрус" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Эльбрус</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/karelia.jpg" alt="Карелия" class="element__img">
+                    <div class="description">
+                        <h3 class="description__name">Карелия</h3>
+                        <button class="description__like"></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&#169;2023 Mesto Russia</p>
+        </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <div class="popup__form">
+                    <p class="popup__title">Редактировать профиль</p>
+                    <input class="popup__text-input" type="text" placeholder="Имя">
+                    <input class="popup__text-input" type="text" placeholder="О себе">
+                    <input class="btn-save" type="button" value="Сохранить">
+                    <img src="images/close_icon.png" alt="Крестик закрыть" class="popup__close">
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>
