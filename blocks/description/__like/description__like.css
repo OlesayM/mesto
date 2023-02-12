@@ -12,6 +12,7 @@
   transition: 0.3s;
   display: block;
   padding: 0;
+  background-size: contain;
 }
 
 .description__like:hover {
