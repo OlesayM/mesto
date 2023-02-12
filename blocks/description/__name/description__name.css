@@ -10,3 +10,13 @@
   overflow: hidden;
   max-width: 200px;
 }
+@media screen and (max-width: 980px) {
+  .description__name {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 410px) {
+  .description__name {
+  max-width: 200px;
+}
+}

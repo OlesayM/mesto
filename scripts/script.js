@@ -1,32 +1,28 @@
-let editPopup =document.querySelector('.popup');
-let editProfilButton =document.querySelector('.profile__editbuttom');
-editProfilButton.addEventListener('click', function () {
-   editPopup.classList.add('popup__open');
-});
+let Popup =document.querySelector('.popup');
+let editProfileButton =document.querySelector('.profile__editbuttom');
 let closePopup =document.querySelector('.popup__close');
-closePopup.addEventListener('click', function () {
-  editPopup.classList.remove('popup__open');
-});
-let userName = 'Жак-Ив Кусто';
-let userOccupation = 'Исследователь океана';
-let userNameElement = document.querySelector('.profile__username');
-userNameElement.textContent =userName;
-let userOccupationElement = document.querySelector('.profile__occupation');
-userOccupationElement.textContent =userOccupation;
 let userNameInput = document.querySelector('.popup__text-input_username');
-userNameInput.value = userName;
 let userOccupationInput = document.querySelector('.popup__text-input_occupation');
-userOccupationInput.value = userOccupation;
+let userNameElement = document.querySelector('.profile__username');
+let userOccupationElement = document.querySelector('.profile__occupation');
 let formElement = document.querySelector('.popup__container');
+
+editProfileButton.addEventListener('click', function () {
+  Popup.classList.add('popup__open');
+});
+
+closePopup.addEventListener('click', function () {
+ Popup.classList.remove('popup__open');
+ userNameInput.value = userNameElement.textContent;
+ userOccupationInput.value = userOccupationElement.textContent;
+});
+
 let handleFormSubmit = function(evt){
   evt.preventDefault();
-  inputUserName = document.querySelector(".popup__text-input_username").value;
-  inputUserOccupation = document.querySelector(".popup__text-input_occupation").value;
-  let userOccupationElement = document.querySelector('.profile__occupation');
-  userOccupationElement.textContent= inputUserOccupation;
-  let userNameElement = document.querySelector('.profile__username');
-  userNameElement.textContent= inputUserName;
-  editPopup.classList.remove('popup__open');
+  userNameElement.textContent = userNameInput.value;
+  userOccupationElement.textContent = userOccupationInput.value;
+  Popup.classList.remove('popup__open');
   }
+  
 formElement.addEventListener('submit',handleFormSubmit)
 
