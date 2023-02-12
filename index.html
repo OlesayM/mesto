@@ -73,15 +73,15 @@
             <p class="footer__copyright">&#169;2023 Mesto Russia</p>
         </footer>
         <div class="popup">
-            <div class="popup__container">
+            <form class="popup__container">
                 <div class="popup__form">
                     <p class="popup__title">Редактировать профиль</p>
-                    <input class="popup__text-input" type="text" placeholder="Имя">
-                    <input class="popup__text-input" type="text" placeholder="О себе">
-                    <input class="btn-save" type="button" value="Сохранить">
-                    <img src="images/close_icon.png" alt="Крестик закрыть" class="popup__close">
+                    <input class="popup__text-input popup__text-input_username" type="text" placeholder="Имя">
+                    <input class="popup__text-input popup__text-input_occupation" type="text" placeholder="О себе">
+                    <button class="btn-save" type="submit" value="Сохранить">Сохранить</button>
+                    <button class="popup__close"></button>
                 </div>
-            </div>
+            </form>
         </div>
         <script src="./scripts/script.js"></script>
     </body>

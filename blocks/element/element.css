@@ -1,20 +1,21 @@
 .element {
   max-width: 282px;
-  /*max-height: 361px;*/
+  min-height: 361px;
   background: #ffffff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 863px) {
+@media screen and (max-width: 904px) {
   .element {
-     max-width: 400px; 
+     max-width: 400px;
   }
 }
 
+
 @media screen and (max-width: 500px) {
   .element {
-     max-width: 462px; 
+     max-width: 462px;
   }
 }
 
