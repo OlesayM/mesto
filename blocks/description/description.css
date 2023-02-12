@@ -1,5 +1,6 @@
 .description {
   min-width: 246px;
+  min-height: 23px;
   margin: 20px 15px 20px 21px;
   display: flex;
   justify-content: space-between;
