@@ -20,6 +20,6 @@ Alt-H1
 * и т.д.
 *Файловая структуру проекта оформлена по правилам Nested БЭМ.*
 ------
-4. Ссылка на GitHub Pages: https://olesaym.github.io/russian-travel/index.html
+4. Ссылка на GitHub Pages: https://olesaym.github.io/mesto//index.html
 Alt-H1
 ------
