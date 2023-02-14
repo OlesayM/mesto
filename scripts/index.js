@@ -7,22 +7,24 @@ let userNameElement = document.querySelector('.profile__username');
 let userOccupationElement = document.querySelector('.profile__occupation');
 let formElement = document.querySelector('.popup__container');
 
-editProfileButton.addEventListener('click', function () {
+function OpenPopup_form() {
   Popup.classList.add('popup__open');
-});
+};
 
-closePopup.addEventListener('click', function () {
- Popup.classList.remove('popup__open');
- userNameInput.value = userNameElement.textContent;
- userOccupationInput.value = userOccupationElement.textContent;
-});
+function ClosePopup_form() {
+  Popup.classList.remove('popup__open');
+  userNameInput.value = userNameElement.textContent;
+  userOccupationInput.value = userOccupationElement.textContent;
+};
 
-let handleFormSubmit = function(evt){
+function handleFormSubmit(evt){
   evt.preventDefault();
   userNameElement.textContent = userNameInput.value;
   userOccupationElement.textContent = userOccupationInput.value;
-  Popup.classList.remove('popup__open');
+  ClosePopup_form();
   }
   
-formElement.addEventListener('submit',handleFormSubmit)
+editProfileButton.addEventListener('click', OpenPopup_form);
+closePopup.addEventListener('click', ClosePopup_form);
+formElement.addEventListener('submit', handleFormSubmit)
 
