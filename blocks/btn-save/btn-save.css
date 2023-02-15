@@ -13,6 +13,9 @@
   padding: 0;
   margin: 48px 36px 47px 36px;
 }
+.btn-save :hover {
+  opacity: 0.8;
+}
 @media screen and (max-width: 522px) {
   .btn-save {
       width: 238px;
