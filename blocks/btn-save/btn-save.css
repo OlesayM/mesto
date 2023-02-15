@@ -2,6 +2,7 @@
   width: 358px;
   height: 50px;
   background: #000000;
+  border: none;
   border-radius: 2px;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
@@ -11,9 +12,10 @@
   color: #ffffff;
   cursor: pointer;
   padding: 0;
-  margin: 48px 36px 47px 36px;
+  margin-top: 45px;
+  /*margin: 48px 36px 47px 36px;*/
 }
-.btn-save :hover {
+.btn-save:hover {
   opacity: 0.8;
 }
 @media screen and (max-width: 522px) {
@@ -22,6 +24,7 @@
       height: 46px;
       font-size: 14px;
       line-height: 17px;
-      margin: 45px 22px 25px 22px;
+      margin-top: 45px;
+     /* margin: 45px 22px 25px 22px;*/
   }
 }

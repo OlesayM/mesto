@@ -25,63 +25,63 @@
                 <button class="profile__addbuttom" type="button"></button>
             </section>
             <section class="elements">
-                <div class="element">
+                <article class="element">
                     <img src="./images/altai.jpg" alt="Алтай" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Алтай</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img src="./images/baikal.jpg" alt="Байкал" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Байкал</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img src="./images/cherkess.jpg" alt="Карачаево - Черкессия" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Карачаево - Черкессия</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img src="./images/Dombai.jpg" alt="Домбай" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Домбай</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img src="./images//elbrus.jpg" alt="Эльбрус" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Эльбрус</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img src="./images/karelia.jpg" alt="Карелия" class="element__img">
                     <div class="description">
                         <h2 class="description__name">Карелия</h2>
                         <button class="description__like" type="button"></button>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&#169;2023 Mesto Russia</p>
         </footer>
         <div class="popup">
-            <form class="popup__container">
-                <div class="popup__form">
-                    <p class="popup__title">Редактировать профиль</p>
-                    <input class="popup__text-input popup__text-input_username" value="Жак-Ив Кусто" type="text" placeholder="Имя">
-                    <input class="popup__text-input popup__text-input_occupation" value="Исследователь океана" type="text" placeholder="О себе">
+            <div class="popup__container">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <button class="popup__close" type="button"></button>
+                <form name="editForm">
+                    <input class="popup__text-input"  type="text" placeholder="Имя" name="editForm_username">
+                    <input class="popup__text-input"  type="text" placeholder="О себе" name="editForm_occupation">
                     <button class="btn-save" type="submit" value="Сохранить">Сохранить</button>
-                    <button class="popup__close" type="button"></button>
-                </div>
-            </form>
+                 </form>
+            </div>
         </div>
         <script src="./scripts/index.js"></script>
     </body>

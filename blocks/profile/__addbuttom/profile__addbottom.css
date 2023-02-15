@@ -11,6 +11,9 @@
   background-color: transparent;
   padding: 0;
 }
+.profile__addbuttom:hover {
+  opacity: 0.6;
+}
 @media screen and (max-width: 687px) {
   .profile__addbuttom {
       width: 282px;
