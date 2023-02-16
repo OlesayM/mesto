@@ -17,12 +17,12 @@
                     <div class="profile__info">
                         <div class="user-field">
                             <h1 class="profile__username">Жак-Ив Кусто</h1>
-                            <button class="profile__editbuttom" type="button"></button>
+                            <button class="profile__editbutton" type="button"></button>
                         </div>
                         <p class="profile__occupation">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__addbuttom" type="button"></button>
+                <button class="profile__addbutton" type="button"></button>
             </section>
             <section class="elements">
                 <article class="element">
@@ -76,9 +76,9 @@
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <button class="popup__close" type="button"></button>
-                <form name="editForm" method="post">
-                    <input class="popup__text-input"  type="text" placeholder="Имя" name="editForm_username">
-                    <input class="popup__text-input"  type="text" placeholder="О себе" name="editForm_occupation">
+                <form name="editForm" class="popupform" method="post">
+                    <input class="popup__input popup__input_field_username"  type="text" placeholder="Имя" name="editForm_username">
+                    <input class="popup__input popup__input_field_occupation"  type="text" placeholder="О себе" name="editForm_occupation">
                     <button class="btn-save" type="submit" value="Сохранить">Сохранить</button>
                 </form>
             </div>

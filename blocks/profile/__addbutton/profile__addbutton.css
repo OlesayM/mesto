@@ -1,4 +1,4 @@
-.profile__addbuttom {
+.profile__addbutton {
   height: 50px;
   width: 150px;
   cursor: pointer;
@@ -11,11 +11,11 @@
   background-color: transparent;
   padding: 0;
 }
-.profile__addbuttom:hover {
+.profile__addbutton:hover {
   opacity: 0.6;
 }
 @media screen and (max-width: 687px) {
-  .profile__addbuttom {
+  .profile__addbutton {
       width: 282px;
       background-image: url("../../../images/Vector_mini.png");
   }

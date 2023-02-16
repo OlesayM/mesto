@@ -1,4 +1,4 @@
-.popup__text-input {
+.popup__input {
   box-sizing: border-box;
   width: 358px;
   min-height: 32px;
@@ -13,11 +13,11 @@
   outline: none;
 }
 @media screen and (max-width: 522px) {
-  .popup__text-input {
+  .popup__input {
       width: 238px;
       margin-bottom: 25px;
   }
 }
-.popup__text-input:last-of-type {
+.popup__input:last-of-type {
   margin-bottom: 0;
 }

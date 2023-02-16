@@ -1,4 +1,4 @@
-.profile__editbuttom {
+.profile__editbutton {
   cursor: pointer;
   border: 1px solid #ffffff;
   background-image: url("../../../images/pencil.png");
@@ -9,11 +9,11 @@
   width: 24px;
   padding: 0;
 }
-.profile__editbuttom:hover {
+.profile__editbutton:hover {
   opacity: 0.6;
 }
 @media screen and (max-width: 404px) {
-  .profile__editbuttom {
+  .profile__editbutton {
       height: 18px;
       width: 18px;
   }
