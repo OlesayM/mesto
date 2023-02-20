@@ -4,4 +4,6 @@
   border-radius: 10px 10px 0px 0px;
   object-fit: cover;
   object-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
