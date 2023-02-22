@@ -25,7 +25,15 @@
                 <button class="profile__addbutton" type="button"></button>
             </section>
             <section class="elements">
-                
+                <template id = mesto-template>
+                    <article class="element">
+                        <img src='' alt="" class="element__img">
+                        <div class="description">
+                            <h2 class="description__name"></h2>
+                            <button class="description__like" type="button"></button>
+                        </div>
+                    </article>
+                   </template>
             </section>
         </main>
         <footer class="footer">
@@ -46,22 +54,13 @@
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <button class="popup__close" type="button" name="close_mesto"></button>
-                <form name="addForm" class="popupaddform" method="post">
+                <form id="addForm" class="popupaddform" method="post">
                     <input class="popup__input popup__input_field_mesto"  type="text" placeholder="Название" name="addForm_mesto">
-                    <input class="popup__input popup__input_field_link"  type="text" placeholder="Ссылка на картинку" name="addForm_link">
+                    <input class="popup__input popup__input_field_link"  type="url" placeholder="Ссылка на картинку" name="addForm_link">
                     <button class="btn-save" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
                 </form>
             </div>
         </div>
-        <template id = mesto-template>
-            <article class="element">
-                
-                <div class="description">
-                    <h2 class="description__name"></h2>
-                    <button class="description__like" type="button"></button>
-                </div>
-            </article>
-           </template>
         <script src="./scripts/index.js"></script>
     </body>
 </html>

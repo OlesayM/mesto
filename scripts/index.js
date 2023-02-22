@@ -3,18 +3,17 @@ let editProfileButton =document.querySelector('.profile__editbutton');
 let openPopup =document.querySelector('.popup_open');
 let closePopup =document.querySelector('.popup__close');
 let closeAddPopup =document.querySelector('button[name="close_mesto"]');
-let addMestoButton= document.querySelector('button[name="save_mesto"]');
 let userNameInput = document.querySelector('.popup__input_field_username');
 let userOccupationInput = document.querySelector('.popup__input_field_occupation');
 let userNameElement = document.querySelector('.profile__username');
 let userOccupationElement = document.querySelector('.profile__occupation');
 let formElement = document.querySelector('.popupform');
-
 let addProfileButton =document.querySelector('.profile__addbutton');
 let mestoInput = document.querySelector('.popup__input_field_mesto');
 let linkInput = document.querySelector('.popup__input_field_link');
 let formAddElement = document.querySelector('.popupaddform');
 let addPopup =document.getElementById('addpopup');
+let elementBtnLike = document.querySelector('.description__like');
 
 //открыть форму редактирования профиля
 function openPopupForm() {
@@ -42,9 +41,9 @@ function handleFormSubmit(evt){
   closePopupForm();
   }
 
-  const elementsContainer=document.querySelector('.elements');
-  const mestoTemplate=document.querySelector('#mesto-template').content;
-  console.log(mestoTemplate);
+  
+  
+  
   const initialCards = [
     {
       name: 'Архыз',
@@ -72,40 +71,29 @@ function handleFormSubmit(evt){
     }
   ];
 
+  const elementsContainer=document.querySelector('.elements'); 
+  
+
   initialCards.forEach(function (element) {
-    const mestoElement = mestoTemplate.cloneNode(true);
-  
-    mestoElement.querySelector('.element__img').src = element.link;
-    mestoElement.querySelector('.description__name').textContent = element.name;
-  
-    elementsContainer.append(mestoElement);
-  })
-
-/*
-  
-  //добавить место
-  function addMesto(photoValue, titleValue){
-    const mestoElement = addMesto.querySelector('.element').cloneNode(true);
-    mestoElement.querySelector('.element__img').src = photoValue;
-    mestoElement.querySelector('.description__name').textContent = titleValue;
-    elementsContainer.append(mestoElement);
- 
-    }
-     //добавить место кнопка
-     addMestoButton.addEventListener('click', function () {
-      const photo = document.querySelector('.popup__input_field_mesto');
-      const title = document.querySelector('.popup__input_field_link');
+    const newElement = document.querySelector('#mesto-template').content.cloneNode(true);
+    const elementPhoto = newElement.querySelector('.element__img');
+    elementPhoto.src = element.link;
+    const elementName = newElement.querySelector('.description__name');
+    elementName.textContent = element.name;
     
-      addMesto(photo.value, title.value);
-    
-      photo.value = '';
-      title.value = '';
-    });
-*/
+    elementsContainer.append(newElement);
+   })
 
-editProfileButton.addEventListener('click', openPopupForm);
-closePopup.addEventListener('click', closePopupForm);
-formElement.addEventListener('submit', handleFormSubmit)
 
-addProfileButton.addEventListener('click', openPopupAddForm);
-closeAddPopup.addEventListener('click', closePopupAddForm);
+
+
+   const elementLike = document.querySelector('.description__like');
+   
+    elementLike.addEventListener('click', function toggleLikeButtun (evt) {
+    evt.target.classList.toggle('description__like_active')}
+    )
+
+
+
+
+
