@@ -5,6 +5,9 @@
   object-fit: cover;
   object-position: center;
 }
+.element__img:hover {
+  opacity: 0.5;
+}
 @media screen and (max-width: 980px) {
   .element__img {
     width: 400px;

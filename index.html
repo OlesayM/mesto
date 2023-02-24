@@ -27,7 +27,8 @@
             <section class="elements">
                 <template id = mesto-template>
                     <article class="element">
-                        <img src='' alt="" class="element__img">
+                        <button class="element__deleteButton" type="button"></button>
+                        <img src='' alt='' class="element__img">
                         <div class="description">
                             <h2 class="description__name"></h2>
                             <button class="description__like" type="button"></button>
@@ -39,7 +40,7 @@
         <footer class="footer">
             <p class="footer__copyright">&#169;2023 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup" id="editpopup">
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <button class="popup__close" type="button"></button>
@@ -59,6 +60,13 @@
                     <input class="popup__input popup__input_field_link"  type="url" placeholder="Ссылка на картинку" name="addForm_link">
                     <button class="btn-save" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
                 </form>
+            </div>
+        </div>
+        <div class="popup" id="photopopup">
+            <div class="popup__photocontainer">
+                <button class="popup__close" type="button"></button>
+                <img src='#' alt="" class="popup__photo">
+                <h3 class="popup__heading">Привет Привет </h3>
             </div>
         </div>
         <script src="./scripts/index.js"></script>
