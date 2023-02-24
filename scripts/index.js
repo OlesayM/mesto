@@ -18,6 +18,9 @@ const mestoInput = document.querySelector('.popup__input_field_mesto');
 const linkInput = document.querySelector('.popup__input_field_link');
 const popupPhoto = document.querySelector('.popup__photo');
 const popupHeading = document.querySelector('.popup__heading');
+const template = document.querySelector('#mesto-template').content;
+const closeButtons = document.querySelectorAll('.popup__close');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -46,14 +49,14 @@ const initialCards = [
 ];
 
 //открыть попап
-function openPopup(pop_up) {
-  pop_up.classList.add('popup_open');
+function openPopup(popup) {
+  popup.classList.add('popup_open');
   
 }
 
 //Закрыть попап
-function closePopup(pop_up) {
-  pop_up.classList.remove('popup_open');
+function closePopup(popup) {
+  popup.classList.remove('popup_open');
 }
 
 //сабмит для формы редактирования
@@ -64,48 +67,49 @@ function handleFormSubmit(evt){
   closePopup(editPopup);
   }
 
-//создание карточки
-function createCard(card) {
-  const newCard = document.querySelector('#mesto-template').content.cloneNode(true);
-  const cardPhoto = newCard.querySelector('.element__img');
-  cardPhoto.src = card.link;
-  cardPhoto.alt = card.name;
-  const cardName = newCard.querySelector('.description__name');
-  cardName.textContent = card.name;
-  const cardLike = newCard.querySelector('.description__like');
-  cardLike.addEventListener('click', function toggleLikeButtun (evt) {
-  evt.target.classList.toggle('description__like_active')})
-  const buttonDelete = newCard.querySelector('.element__deleteButton');
-  buttonDelete.addEventListener('click',deleteButtonClick)
-  cardsContainer.prepend(newCard);
-  cardPhoto.addEventListener('click', function() {
-    popupPhoto.src = card.link;
-    popupHeading.textContent = card.name;
-    popupPhoto.setAttribute('alt', card.name);
+//создаю карточку
+function createCard(item) {
+  const element = template.querySelector('.element').cloneNode(true);
+  element.querySelector('.description__name').textContent = item.name;
+  element.querySelector('.element__img').src = item.link;
+  element.querySelector('.element__img').setAttribute('alt', item.name);
+  element.querySelector('.description__like').addEventListener('click', function(event) {
+    event.target.classList.toggle('description__like_active');
+  })
+  element.querySelector('.element__deleteButton').addEventListener('click', deleteButtonClick);
+  element.querySelector('.element__img').addEventListener('click', function() {
+    popupPhoto.src = item.link;
+    popupHeading.textContent = item.name;
+    popupPhoto.setAttribute('alt', item.name);
     openPopup(photoPopup);
     })
-  }
-  initialCards.forEach(createCard);
+  return element;
+}
 
-//создание новой карточки
-function handleAddFormSubmit(evt){
-  evt.preventDefault();
-  const mestoElement = document.querySelector('#mesto-template').content.cloneNode(true);
-  mestoElement.querySelector('.element__img').src = linkInput.value;
-  mestoElement.querySelector('.element__img').alt = mestoInput.value;
-  mestoElement.querySelector('.description__name').textContent = mestoInput.value;
-  mestoElement.querySelector('.description__like').addEventListener('click', function toggleLikeButtun (evt) {
-    evt.target.classList.toggle('description__like_active')})
-  mestoElement.querySelector('.element__deleteButton').addEventListener('click',deleteButtonClick);
-  mestoElement.querySelector('.element__img').addEventListener('click', function(){
-    popupPhoto.src = linkInput.value;
-    popupHeading.textContent = mestoInput.value;
-    popupPhoto.alt = mestoInput.value;
-    openPopup(photoPopup);
-  });
-    cardsContainer.prepend(mestoElement);
-  closePopup(addPopup);
+//добавляю карточку в Dom
+function renderCard(item) {
+  const element = createCard(item);
+  cardsContainer.prepend(element);
+}
+
+//добавляю карточки из массива в верстку
+initialCards.forEach(function(item){
+  renderCard(item)
+});
+
+//сабмит для формы добавления карточки
+function handleAddFormSubmit(event) {
+  event.preventDefault();
+  const name = mestoInput.value;
+  const link = linkInput.value;
+  const item = {
+    name: name,
+    link: link
   }
+  renderCard(item);
+  event.target.reset();//очищаю форму
+  closePopup(addPopup);;
+}
 
 //удалить карточку
 function deleteButtonClick(evt){
@@ -116,8 +120,6 @@ function deleteButtonClick(evt){
 
 addProfileButton.addEventListener('click', function(){
   openPopup(addPopup);
-  mestoInput.value="";
-  linkInput.value="";
 });
 
 editProfileButton.addEventListener('click', function(){
@@ -126,16 +128,9 @@ editProfileButton.addEventListener('click', function(){
   userOccupationInput.value = userOccupationElement.textContent;
 });
 
-buttonCloseEditPopup.addEventListener('click',function(){
-  closePopup(editPopup)
-});
-
-buttonCloseAddPopup.addEventListener('click',function(){
-  closePopup(addPopup)
-});
-
-buttonClosePhotoPopup.addEventListener('click',function(){
-  closePopup(photoPopup)
+closeButtons.forEach(function(button){
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
 
 formElement.addEventListener('submit', handleFormSubmit);
