@@ -44,10 +44,14 @@
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <button class="popup__close" type="button"></button>
-                <form name="editForm" class="popupform" method="post">
-                    <input class="popup__input popup__input_field_username"  type="text" placeholder="Имя" name="editForm_username">
-                    <input class="popup__input popup__input_field_occupation"  type="text" placeholder="О себе" name="editForm_occupation">
-                    <button class="btn-save" type="submit" value="Сохранить">Сохранить</button>
+                <form id="editForm" class="popup__form" method="post">
+                    <fieldset class="formset">
+                    <input id = "username-input" class="popup__input popup__input_field_username" type="text" placeholder="Имя" minlength="2" maxlength="40" name="editForm_username" required>
+                    <span  class="popup__error username-input-error"></span>
+                    <input id = "occupation-input" class="popup__input popup__input_field_occupation" type="text" placeholder="О себе" minlength="2" maxlength="200" name="editForm_occupation" required>
+                    <span  class="popup__error occupation-input-error" ></span>
+                    <button class="popup__button" type="submit" value="Сохранить">Сохранить</button>
+                    </fieldset>
                 </form>
             </div>
         </div>
@@ -55,10 +59,14 @@
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <button class="popup__close" type="button" name="close_mesto"></button>
-                <form id="addForm" class="popupaddform" method="post">
-                    <input class="popup__input popup__input_field_mesto"  type="text" placeholder="Название" name="addForm_mesto">
-                    <input class="popup__input popup__input_field_link"  type="url" placeholder="Ссылка на картинку" name="addForm_link">
-                    <button class="btn-save" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
+                <form id="addForm" class="popup__form" method="post">
+                    <fieldset class="formset">
+                    <input id = "mesto-input" class="popup__input popup__input_field_mesto" type="text" placeholder="Название" minlength="2" maxlength="30" name="addForm_mesto" required>
+                    <span  class="popup__error mesto-input-error"></span>
+                    <input id = "link-input" class="popup__input popup__input_field_link"  type="url" placeholder="Ссылка на картинку" name="addForm_link" required>
+                    <span  class="popup__error link-input-error"></span>
+                    <button class="popup__button" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
+                    </fieldset>
                 </form>
             </div>
         </div>
@@ -70,5 +78,6 @@
             </div>
         </div>
         <script src="./scripts/index.js"></script>
+        <script src="./scripts/validate.js"></script>
     </body>
 </html>

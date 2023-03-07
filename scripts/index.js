@@ -3,7 +3,7 @@ const userNameInput = document.querySelector('.popup__input_field_username');
 const userOccupationInput = document.querySelector('.popup__input_field_occupation');
 const userNameElement = document.querySelector('.profile__username');
 const userOccupationElement = document.querySelector('.profile__occupation');
-const formElement = document.querySelector('.popupform');
+const formElement = document.getElementById('editForm');
 const addProfileButton =document.querySelector('.profile__addbutton');
 const addPopup =document.getElementById('addpopup');
 const editPopup =document.getElementById('editpopup');
@@ -13,13 +13,16 @@ const buttonCloseEditPopup = editPopup.querySelector('.popup__close');
 const buttonCloseAddPopup = addPopup.querySelector('.popup__close');
 const buttonClosePhotoPopup = photoPopup.querySelector('.popup__close');
 const cardsContainer=document.querySelector('.elements');
-const formAddElement = document.querySelector('.popupaddform');
+const formAddElement = document.getElementById('addForm');
 const mestoInput = document.querySelector('.popup__input_field_mesto');
 const linkInput = document.querySelector('.popup__input_field_link');
 const popupPhoto = document.querySelector('.popup__photo');
 const popupHeading = document.querySelector('.popup__heading');
 const template = document.querySelector('#mesto-template').content;
 const closeButtons = document.querySelectorAll('.popup__close');
+const closePopups = document.querySelectorAll('.popup');
+
+
 
 const initialCards = [
   {
@@ -51,13 +54,23 @@ const initialCards = [
 //открыть попап
 function openPopup(popup) {
   popup.classList.add('popup_open');
+  document.addEventListener("keydown", closeEscPopup);
   
 }
 
 //Закрыть попап
 function closePopup(popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener("keydown", closeEscPopup);
 }
+const closeEscPopup = (evt) => {
+  if (evt.key === "Escape") {
+    const openForm = document.querySelector('.popup_open');
+    closePopup(openForm);
+  }
+}
+
+
 
 //сабмит для формы редактирования
 function handleFormSubmit(evt){
@@ -123,7 +136,7 @@ addProfileButton.addEventListener('click', function(){
 });
 
 editProfileButton.addEventListener('click', function(){
-  openPopup(editPopup)
+  openPopup(editPopup);
   userNameInput.value = userNameElement.textContent;
   userOccupationInput.value = userOccupationElement.textContent;
 });
@@ -131,12 +144,20 @@ editProfileButton.addEventListener('click', function(){
 closeButtons.forEach(function(button){
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
+  button.addEventListener('click', document.querySelector('.popup__form').reset());
+ 
 });
 
 formElement.addEventListener('submit', handleFormSubmit);
   
 formAddElement.addEventListener('submit', handleAddFormSubmit);
 
-
-
-
+const closeOverlayPopup = (evt) => {
+  if (evt.target === evt.currentTarget) {
+    const openForm = document.querySelector('.popup_open');
+    closePopup(openForm);
+  } 
+}
+closePopups.forEach(function(popup){
+  popup.addEventListener('click', closeOverlayPopup);
+});
