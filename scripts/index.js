@@ -3,7 +3,7 @@ const userNameInput = document.querySelector('.popup__input_field_username');
 const userOccupationInput = document.querySelector('.popup__input_field_occupation');
 const userNameElement = document.querySelector('.profile__username');
 const userOccupationElement = document.querySelector('.profile__occupation');
-const formElement = document.getElementById('editForm');
+const formEditElement = document.getElementById('editForm');
 const addProfileButton =document.querySelector('.profile__addbutton');
 const addPopup =document.getElementById('addpopup');
 const editPopup =document.getElementById('editpopup');
@@ -48,9 +48,21 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+const popupEditValidate = new FormValidator(validationConfig, formEditElement);
+popupEditValidate.enableValidation();
+const popupAddValidate = new FormValidator(validationConfig, formAddElement);
+popupAddValidate.enableValidation();
+
+export {photoPopup, popupPhoto, popupHeading, openPopup};
+import {Card} from './Сard.js';
+import {FormValidator, validationConfig } from './FormValidator.js';
 
 //открыть попап
 function openPopup(popup) {
+  const resetAddFormValid = new FormValidator(validationConfig, formAddElement);
+  resetAddFormValid.resetValidError();
+  const resetEditFormValid = new FormValidator(validationConfig, formEditElement);
+  resetEditFormValid.resetValidError();
   popup.classList.add('popup_open');
   document.addEventListener("keydown", closeEscPopup);
 }
@@ -75,67 +87,31 @@ function submitEditProfileForm(evt){
   closePopup(editPopup);
   }
 
-//создаю карточку
-function createCard(item) {
-  const element = template.querySelector('.element').cloneNode(true);
-  element.querySelector('.description__name').textContent = item.name;
-  const elementImage = element.querySelector('.element__img');
-  elementImage.src = item.link;
-  elementImage.setAttribute('alt', item.name);
-  element.querySelector('.description__like').addEventListener('click', function(event) {
-    event.target.classList.toggle('description__like_active');
-  })
-  element.querySelector('.element__deleteButton').addEventListener('click', deleteButtonClick);
-  element.querySelector('.element__img').addEventListener('click', function() {
-    popupPhoto.src = item.link;
-    popupHeading.textContent = item.name;
-    popupPhoto.setAttribute('alt', item.name);
-    openPopup(photoPopup);
-    })
-  return element;
+function renderCard(item){
+    const cardElement = new Card(item, '#mesto-template');
+    cardsContainer.prepend(cardElement.generateCard());
+};
+initialCards.forEach(renderCard);
+
+function handleCardAddSubmit(evt) {
+  evt.preventDefault();
+  const card = {
+      name: mestoInput.value,
+      link: linkInput.value,
+      alt: mestoInput.value,
+  };
+  renderCard(card);
+  evt.target.reset();
+  closePopup(addPopup);
 }
-
-//добавляю карточку в Dom
-function renderCard(item) {
-  const element = createCard(item);
-  cardsContainer.prepend(element);
-}
-
-//добавляю карточки из массива в верстку
-initialCards.forEach(function(item){
-  renderCard(item)
-});
-
-//сабмит для формы добавления карточки
-function handleAddFormSubmit(event) {
-  event.preventDefault();
-  const name = mestoInput.value;
-  const link = linkInput.value;
-  const item = {
-    name: name,
-    link: link
-  }
-  renderCard(item);
-  event.target.reset();//очищаю форму
-  closePopup(addPopup);;
-}
-
-//удалить карточку
-function deleteButtonClick(evt){
-  const button = evt.target
-  const card = button.closest('.element')
-  card.remove()
-  }
 
 addProfileButton.addEventListener('click', function(){
   const contentAddPopup = addPopup.querySelector('.popup__form');
   contentAddPopup.reset();
-  resetValidError(addPopup, validationConfig);
   openPopup(addPopup);
 });
 
 editProfileButton.addEventListener('click', function(){
-  resetValidError(editPopup, validationConfig);
   openPopup(editPopup);
   userNameInput.value = userNameElement.textContent;
   userOccupationInput.value = userOccupationElement.textContent;
@@ -146,9 +122,9 @@ closeButtons.forEach(function(button){
   button.addEventListener('click', () => closePopup(popup));
 });
 
-formElement.addEventListener('submit', submitEditProfileForm);
+formEditElement.addEventListener('submit', submitEditProfileForm);
   
-formAddElement.addEventListener('submit', handleAddFormSubmit);
+formAddElement.addEventListener('submit', handleCardAddSubmit);
 
 const closeOverlayPopup = (evt) => {
   if (evt.target === evt.currentTarget) {
