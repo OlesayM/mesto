@@ -52,17 +52,15 @@ const popupEditValidate = new FormValidator(validationConfig, formEditElement);
 popupEditValidate.enableValidation();
 const popupAddValidate = new FormValidator(validationConfig, formAddElement);
 popupAddValidate.enableValidation();
-
+const resetAddFormValid = new FormValidator(validationConfig, formAddElement);
+const resetEditFormValid = new FormValidator(validationConfig, formEditElement);
 export {photoPopup, popupPhoto, popupHeading, openPopup};
 import {Card} from './Сard.js';
-import {FormValidator, validationConfig } from './FormValidator.js';
+import {FormValidator} from './FormValidator.js';
+import {validationConfig} from './utils/constants/constants.js';
 
 //открыть попап
 function openPopup(popup) {
-  const resetAddFormValid = new FormValidator(validationConfig, formAddElement);
-  resetAddFormValid.resetValidError();
-  const resetEditFormValid = new FormValidator(validationConfig, formEditElement);
-  resetEditFormValid.resetValidError();
   popup.classList.add('popup_open');
   document.addEventListener("keydown", closeEscPopup);
 }
@@ -87,11 +85,19 @@ function submitEditProfileForm(evt){
   closePopup(editPopup);
   }
 
-function renderCard(item){
+//создание карточки
+function createCard(item) {
     const cardElement = new Card(item, '#mesto-template');
-    cardsContainer.prepend(cardElement.generateCard());
-};
-initialCards.forEach(renderCard);
+    return cardElement.generateCard();
+}
+
+//добавление карточки
+function addCard(item) {
+  const cardElement = createCard(item, '#mesto-template');
+  cardsContainer.prepend(cardElement);
+}
+initialCards.forEach(addCard);
+
 
 function handleCardAddSubmit(evt) {
   evt.preventDefault();
@@ -100,18 +106,19 @@ function handleCardAddSubmit(evt) {
       link: linkInput.value,
       alt: mestoInput.value,
   };
-  renderCard(card);
-  evt.target.reset();
+  addCard(card);
   closePopup(addPopup);
+  evt.target.reset();
+  
 }
 
 addProfileButton.addEventListener('click', function(){
-  const contentAddPopup = addPopup.querySelector('.popup__form');
-  contentAddPopup.reset();
+  resetAddFormValid.resetValidate();
   openPopup(addPopup);
 });
 
 editProfileButton.addEventListener('click', function(){
+  resetEditFormValid.resetValidate();
   openPopup(editPopup);
   userNameInput.value = userNameElement.textContent;
   userOccupationInput.value = userOccupationElement.textContent;
