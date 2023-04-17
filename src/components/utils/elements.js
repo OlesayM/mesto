@@ -5,29 +5,35 @@ export const userNameElement = document.querySelector('.profile__username');
 export const formEditElement = document.getElementById('editForm');
 export const addProfileButton =document.querySelector('.profile__addbutton');
 export const formAddElement = document.getElementById('addForm');
+const arkhyzPhoto = new URL ('../../images/arkhyz.jpg', import.meta.url);
+const chelyabinskPhoto = new URL ('../../images/chelyabinsk-oblast.jpg', import.meta.url);
+const ivanovoPhoto = new URL ('../../images/ivanovo.jpg', import.meta.url);
+const kamchatkaPhoto = new URL ('../../images/kamchatka.jpg', import.meta.url);
+const kholmogorskPhoto = new URL ('../../images/kholmogorsky-rayon.jpg', import.meta.url);
+const baikalPhoto = new URL ('../../images/baikal.jpg', import.meta.url);
 export const initialCards = [
   {
     name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    link: arkhyzPhoto,
   },
   {
     name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    link: chelyabinskPhoto,
   },
   {
     name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    link: ivanovoPhoto,
   },
   {
     name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    link: kamchatkaPhoto,
   },
   {
     name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    link: kholmogorskPhoto,
   },
   {
     name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    link: baikalPhoto,
   }
 ];
