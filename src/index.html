@@ -40,44 +40,44 @@
         <footer class="footer">
             <p class="footer__copyright">&#169;2023 Mesto Russia</p>
         </footer>
-        <div class="popup" id="editpopup">
+        <div class="popup popup_profile" id="editpopup">
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <button class="popup__close" type="button"></button>
                 <form id="editForm" class="popup__form" method="post">
                     <fieldset class="formset">
-                    <input id = "username-input" class="popup__input popup__input_field_username" type="text" placeholder="Имя" minlength="2" maxlength="40" name="editForm_username" required>
+                    <input id = "username-input" class="popup__input popup__input_field_username" name ="username__form" type="text" placeholder="Имя" minlength="2" maxlength="40" name="editForm_username" required>
                     <span  class="popup__error username-input-error"></span>
-                    <input id = "occupation-input" class="popup__input popup__input_field_occupation" type="text" placeholder="О себе" minlength="2" maxlength="200" name="editForm_occupation" required>
+                    <input id = "occupation-input" class="popup__input popup__input_field_occupation" name ="occupation__form" type="text" placeholder="О себе" minlength="2" maxlength="200" name="editForm_occupation" required>
                     <span  class="popup__error occupation-input-error" ></span>
                     <button class="popup__button" type="submit" value="Сохранить">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-        <div class="popup" id="addpopup">
+        <div class="popup popup_mesto" id="addpopup">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <button class="popup__close" type="button" name="close_mesto"></button>
                 <form id="addForm" class="popup__form" method="post">
                     <fieldset class="formset">
-                    <input id = "mesto-input" class="popup__input popup__input_field_mesto" type="text" placeholder="Название" minlength="2" maxlength="30" name="addForm_mesto" required>
+                    <input id = "mesto-input" class="popup__input popup__input_field_mesto" name ="name__form" type="text" placeholder="Название" minlength="2" maxlength="30" name="addForm_mesto" required>
                     <span  class="popup__error mesto-input-error"></span>
-                    <input id = "link-input" class="popup__input popup__input_field_link"  type="url" placeholder="Ссылка на картинку" name="addForm_link" required>
+                    <input id = "link-input" class="popup__input popup__input_field_link"  name ="link__form" type="url" placeholder="Ссылка на картинку" name="addForm_link" required>
                     <span  class="popup__error link-input-error"></span>
                     <button class="popup__button" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-        <div class="popup" id="photopopup">
+        <div class="popup photo__popup" id="photopopup">
             <div class="popup__photocontainer">
                 <button class="popup__close" type="button"></button>
                 <img src='#' alt="#" class="popup__photo">
-                <h3 class="popup__heading">Привет Привет </h3>
+                <h3 class="popup__heading"></h3>
             </div>
         </div>
         
-        <script type="module" src="./scripts/index.js"></script>
+        <script type="module" src="./pages/index.js"></script>
     </body>
 </html>

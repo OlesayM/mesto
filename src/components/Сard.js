@@ -1,8 +1,10 @@
-import { photoPopup, popupPhoto, popupHeading, openPopup} from './index.js'
+
 export class Card {
-    constructor(initialCards, cardTemplateSelector){
-      this._name = initialCards.name;
-      this._link = initialCards.link;
+    constructor({data, handleCardClick}, cardTemplateSelector){
+      this._card = data;
+      this._name = data.name;
+      this._link = data.link;
+      this._handleCardClick = handleCardClick;
       this._cardTemplateSelector = cardTemplateSelector;
     }
 
@@ -39,8 +41,9 @@ export class Card {
       });
 
       this._cardPhoto.addEventListener('click', () =>{
-        this._openPhoto();
-      });
+        this._handleCardClick(this._name, this._link)
+      }) ;
+      
     }
 
     generateCard(){
