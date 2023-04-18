@@ -5,16 +5,16 @@ import {
   userOccupationInput,
   formEditElement,
   addProfileButton,
-  formAddElement, 
-  initialCards
-}  from '../components/utils/elements.js';
-import {Card} from '../components/Сard.js';
-import {FormValidator} from '../components/FormValidator.js';
-import {validationConfig} from '../components/utils/constants.js';
-import {PopupWithImage} from '../components/PopupWithImage.js';
-import {PopupWithForm} from '../components/PopupWithForm.js';
-import {UserInfo} from '../components/UserInfo.js';
-import {Section} from '../components/Section.js';
+  formAddElement,
+  initialCards,
+} from '../utils/elements.js';
+import { Card } from '../components/Сard.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { validationConfig } from '../utils/constants.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { Section } from '../components/Section.js';
 
 // валидация попапов
 const popupEditValidate = new FormValidator(validationConfig, formEditElement);
@@ -22,15 +22,16 @@ popupEditValidate.enableValidation();
 const popupAddValidate = new FormValidator(validationConfig, formAddElement);
 popupAddValidate.enableValidation();
 
-const renderedCard = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const cardElement = createCard(item);
-    renderedCard.addItem(cardElement);
+const renderedCard = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const cardElement = createCard(item);
+      renderedCard.addItem(cardElement);
+    },
   },
-},
-  ".elements"
-); 
+  '.elements'
+);
 renderedCard.renderItems();
 
 function createCard(item) {
@@ -42,10 +43,10 @@ function createCard(item) {
       },
     },
     '#mesto-template'
-  )
+  );
   const cardElement = newCard.generateCard();
   return cardElement;
-};
+}
 
 //Popup с картинкой
 const popupZoomPhoto = new PopupWithImage('#photopopup');
@@ -58,9 +59,12 @@ const profileInfo = new UserInfo({
 });
 
 //Popup профиль пользователя
-const popupEditProfile = new PopupWithForm ('.popup_profile', {
+const popupEditProfile = new PopupWithForm('.popup_profile', {
   callbackSubmitForm: (userInfo) => {
-    profileInfo.setUserInfo({userName: userInfo['username__form'], userOccupation: userInfo['occupation__form']});
+    profileInfo.setUserInfo({
+      userName: userInfo['username__form'],
+      userOccupation: userInfo['occupation__form'],
+    });
     popupEditProfile.close();
   },
 });
@@ -76,7 +80,10 @@ editProfileButton.addEventListener('click', () => {
 //Popup добавления карточки места
 const popupMestoWithForm = new PopupWithForm('.popup_mesto', {
   callbackSubmitForm: (data) => {
-    const newCard = createCard({name: data['name__form'], link: data['link__form']})
+    const newCard = createCard({
+      name: data['name__form'],
+      link: data['link__form'],
+    });
     renderedCard.addItem(newCard);
     popupMestoWithForm.close();
   },
@@ -86,11 +93,3 @@ addProfileButton.addEventListener('click', () => {
   popupMestoWithForm.open();
   popupAddValidate.resetValidate();
 });
-
-
-
-
-
-
-
-

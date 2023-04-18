@@ -43,7 +43,7 @@
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <button class="popup__close" type="button"></button>
-                <form id="editForm" class="popup__form" method="post">
+                <form id="editForm" class="popup__form" method="post" novalidate>
                     <fieldset class="formset">
                     <input id = "username-input" class="popup__input popup__input_field_username" name ="username__form" type="text" placeholder="Имя" minlength="2" maxlength="40"  required>
                     <span  class="popup__error username-input-error"></span>
@@ -58,7 +58,7 @@
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <button class="popup__close" type="button" name="close_mesto"></button>
-                <form id="addForm" class="popup__form" method="post">
+                <form id="addForm" class="popup__form" method="post" novalidate>
                     <fieldset class="formset">
                     <input id = "mesto-input" class="popup__input popup__input_field_mesto" name ="name__form" type="text" placeholder="Название" minlength="2" maxlength="30"  required>
                     <span  class="popup__error mesto-input-error"></span>
