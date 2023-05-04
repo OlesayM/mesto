@@ -5,12 +5,16 @@ export const userNameElement = document.querySelector('.profile__username');
 export const formEditElement = document.getElementById('editForm');
 export const addProfileButton = document.querySelector('.profile__addbutton');
 export const formAddElement = document.getElementById('addForm');
+export const iconAvatarEdit = document.querySelector('.profile__avatar-button');
+export const formEditAvatar = document.getElementById('updateAvatar');
+/*
 const arkhyzPhoto = new URL('../images/arkhyz.jpg', import.meta.url);
 const chelyabinskPhoto = new URL('../images/chelyabinsk-oblast.jpg', import.meta.url);
 const ivanovoPhoto = new URL('../images/ivanovo.jpg', import.meta.url);
 const kamchatkaPhoto = new URL('../images/kamchatka.jpg', import.meta.url);
 const kholmogorskPhoto = new URL('../images/kholmogorsky-rayon.jpg',import.meta.url);
 const baikalPhoto = new URL('../images/baikal.jpg', import.meta.url);
+
 export const initialCards = [
   {
     name: 'Архыз',
@@ -37,3 +41,4 @@ export const initialCards = [
     link: baikalPhoto,
   },
 ];
+*/

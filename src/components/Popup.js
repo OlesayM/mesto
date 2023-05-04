@@ -18,7 +18,7 @@ export class Popup {
       this.close();
     }
   };
-  
+
   // закрыть popup по клику за область формы (включая крестик)
   setEventListeners() {
     this._popupItem.addEventListener('mousedown', (evt) => {

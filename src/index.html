@@ -12,7 +12,9 @@
         <main class="content">
             <section class="profile">
                 <div class="profile__container">
-                    <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя" class="profile__avatar">
+                    <button class="profile__avatar-button" type="button">
+                        <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя" class="profile__avatar">
+                      </button>                
                     <div class="profile__info">
                         <div class="user-field">
                             <h1 class="profile__username">Жак-Ив Кусто</h1>
@@ -30,7 +32,10 @@
                         <img src='#' alt='#' class="element__img">
                         <div class="description">
                             <h2 class="description__name"></h2>
-                            <button class="description__like" type="button"></button>
+                            <div class="description__like-container">
+                                <button class="description__like" type="button"></button>
+                                <p class="description__like-counter">0</p>
+                            </div>
                         </div>
                     </article>
                    </template>
@@ -45,9 +50,9 @@
                 <button class="popup__close" type="button"></button>
                 <form id="editForm" class="popup__form" method="post" novalidate>
                     <fieldset class="formset">
-                    <input id = "username-input" class="popup__input popup__input_field_username" name ="username__form" type="text" placeholder="Имя" minlength="2" maxlength="40"  required>
+                    <input id = "username-input" class="popup__input popup__input_field_username" name ="name" type="text" placeholder="Имя" minlength="2" maxlength="40"  required>
                     <span  class="popup__error username-input-error"></span>
-                    <input id = "occupation-input" class="popup__input popup__input_field_occupation" name ="occupation__form" type="text" placeholder="О себе" minlength="2" maxlength="200"  required>
+                    <input id = "occupation-input" class="popup__input popup__input_field_occupation" name ="about" type="text" placeholder="О себе" minlength="2" maxlength="200"  required>
                     <span  class="popup__error occupation-input-error" ></span>
                     <button class="popup__button" type="submit" value="Сохранить">Сохранить</button>
                     </fieldset>
@@ -60,10 +65,10 @@
                 <button class="popup__close" type="button" name="close_mesto"></button>
                 <form id="addForm" class="popup__form" method="post" novalidate>
                     <fieldset class="formset">
-                    <input id = "mesto-input" class="popup__input popup__input_field_mesto" name ="name__form" type="text" placeholder="Название" minlength="2" maxlength="30"  required>
+                    <input id = "mesto-input" class="popup__input popup__input_field_mesto" name ="name" type="text" placeholder="Название" minlength="2" maxlength="30"  required>
                     <span  class="popup__error mesto-input-error"></span>
-                    <input id = "link-input" class="popup__input popup__input_field_link"  name ="link__form" type="url" placeholder="Ссылка на картинку"  required>
-                    <span  class="popup__error link-input-error"></span>
+                    <input id = "link-input" class="popup__input popup__input_field_link"  name ="link" type="url" placeholder="Ссылка на картинку"  required>
+                    <p  class="popup__error link-input-error"></p>
                     <button class="popup__button" type="submit" value="Сохранить" name="save_mesto">Сохранить</button>
                     </fieldset>
                 </form>
@@ -76,5 +81,25 @@
                 <h3 class="popup__heading"></h3>
             </div>
         </div>
+        <div  class="popup popup_confirm" id="confirmpopup"> 
+            <div class="popup__container">
+              <button class="popup__close" type="button"></button>
+              <h3 class="popup__title popup__title_type_confirm">Вы уверены?</h3>
+              <form id="deleteMesto" class="popup__form"  novalidate>
+                <button class="popup__button" type="submit" value="Сохранить">Да</button>
+              </form>
+            </div>
+          </div>
+          <div  class="popup popup_update" id="updatepopup"> 
+            <div class="popup__container">
+              <button class="popup__close" type="button"></button>
+              <h3 class="popup__title popup__title_type_update">Обновить аватар</h3>
+              <form id="updateAvatar" class="popup__form" method="post" novalidate>
+                <input id="avatar-input" type="url" class="popup__input popup__input_field_avatar" name="avatar" required placeholder="Введите ссылку на аватар" minlength="2" maxlength="200">
+                <span  class="popup__error avatar-input-error" ></span>
+                <button class="popup__button popup__button_type_update" type="submit" value="Сохранить">Сохранить</button>
+              </form>
+            </div>
+          </div>
     </body>
 </html>

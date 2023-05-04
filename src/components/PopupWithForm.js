@@ -1,5 +1,4 @@
 import { Popup } from './Popup.js';
-
 export class PopupWithForm extends Popup {
   constructor(popupSelector, { callbackSubmitForm }) {
     super(popupSelector);
@@ -9,8 +8,9 @@ export class PopupWithForm extends Popup {
       this._formElement.querySelectorAll('.popup__input')
     );
     this._buttonElement = this._formElement.querySelector('.popup__button');
+    this._buttonSaveText = this._buttonElement.textContent;
   }
-  
+
   _getInputValues() {
     const inputValue = {};
     this._inputList.forEach((input) => {
@@ -25,6 +25,15 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       this._callbackSubmitForm(this._getInputValues());
     });
+  }
+
+  // Метод добавления кнопке текста в момент сохранения
+  putSavingProcessText() {
+    this._buttonElement.textContent = 'Сохранение...';
+  }
+  // Метод добавления стандартного текста кнопке
+  returnSavingProcessText() {
+    this._buttonElement.textContent = this._buttonSaveText;
   }
 
   close() {

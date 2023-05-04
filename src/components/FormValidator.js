@@ -9,7 +9,7 @@ export class FormValidator {
       this.validationConfig.submitButtonSelector
     );
   }
-  
+
   _showInputError = (inputElement, errorMessage) => {
     const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
@@ -77,7 +77,7 @@ export class FormValidator {
     });
     this._toggleButtonState();
   }
-  
+
   enableValidation = () => {
     this._inputList.forEach((formElement) => {
       this._setEventListeners();
