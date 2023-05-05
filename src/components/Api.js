@@ -64,7 +64,7 @@ export class Api {
 
   // постановка лайка
   putLike(data) {
-    return fetch(`${this._baseUrl}/cards/${data._id}/likes/`, {
+    return fetch(`${this._baseUrl}/cards/${data}/likes/`, {
       method: 'PUT',
       headers: this._headers,
     }).then(this._responseStatus);
@@ -72,7 +72,7 @@ export class Api {
 
   // снятие лайка
   deleteLike(data) {
-    return fetch(`${this._baseUrl}/cards/${data._id}/likes/`, {
+    return fetch(`${this._baseUrl}/cards/${data}/likes/`, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._responseStatus);

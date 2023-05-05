@@ -78,26 +78,26 @@ function createCard(data) {
             });
         });
       },
-      putLike: () => {
-        api
-          .putLike(data)
-          .then((data) => {
-            card.counter(data);
-          })
-          .catch((err) => {
-            console.log(`При добавлении лайка возникла ошибка, ${err}`);
-          });
-      },
-
-      deleteLike: () => {
-        api
-          .deleteLike(data)
-          .then((data) => {
-            card.counter(data);
-          })
-          .catch((err) => {
-            console.log(`При удалении лайка возникла ошибка, ${err}`);
-          });
+      handleCardLike: () => {
+        if (!card.isLiked()) {
+          api
+            .putLike(data._id)
+            .then((data) => {
+              card.likeCard(data.likes.length);
+            })
+            .catch((err) => {
+              console.log(`При добавлении лайка возникла ошибка, ${err}`);
+            });
+        } else {
+          api
+            .deleteLike(data._id)
+            .then((data) => {
+              card.likeCard(data.likes.length);
+            })
+            .catch((err) => {
+              console.log(`При удалении лайка возникла ошибка, ${err}`);
+            });
+        }
       },
     },
     userId

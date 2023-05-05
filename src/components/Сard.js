@@ -3,7 +3,7 @@ export class Card {
     data,
     cardTemplateSelector,
     handleCardClick,
-    { handleDeleteIconClick, putLike, deleteLike },
+    { handleDeleteIconClick, handleCardLike },
     userId
   ) {
     this._name = data.name;
@@ -12,11 +12,11 @@ export class Card {
     this._cardTemplateSelector = cardTemplateSelector;
     this._ownerId = data.owner._id;
     this._likes = data.likes;
+
     this._userId = userId;
     this._likesId = data.likes._id;
     this._handleDeleteIconClick = handleDeleteIconClick;
-    this._putLike = putLike;
-    this._deleteLike = deleteLike;
+    this._handleCardLike = handleCardLike;
   }
 
   _getTemlate() {
@@ -32,22 +32,10 @@ export class Card {
     this._element = null;
   }
 
-  _setliked() {
-    if (!this._likeButton.classList.contains('description__like_active')) {
-      this._likeButton.classList.add('description__like_active');
-      this._putLike(this._likesId);
-    } else {
-      this._likeButton.classList.remove('description__like_active');
-      this._deleteLike(this._likesId);
-    }
-  }
-
-  counter(data) {
-    this._countLike.textContent = data.likes.length;
-  }
-
   _setEventListeners() {
-    this._likeButton.addEventListener('click', () => this._setliked());
+    this._likeButton.addEventListener('click', () =>
+      this._handleCardLike(this)
+    );
 
     this._deleteButton.addEventListener('click', () =>
       this._handleDeleteIconClick(this)
@@ -68,13 +56,10 @@ export class Card {
     this._deleteButton = this._element.querySelector('.element__deleteButton');
     this._countLike = this._element.querySelector('.description__like-counter');
     this._countLike.textContent = this._likes.length;
-
     this._setEventListeners();
-
     if (this._userId !== this._ownerId) {
       this._deleteButton.remove();
     }
-
     this._likes.forEach((like) => {
       if (like._id === this._userId) {
         this._likeButton.classList.add('description__like_active');
@@ -82,4 +67,15 @@ export class Card {
     });
     return this._element;
   }
+
+
+  isLiked() {
+    return this._likeButton.classList.contains('description__like_active');
+  }
+
+  likeCard(count) {
+    this._countLike.textContent = count;
+    this._likeButton.classList.toggle('description__like_active');
+  }
+
 }
